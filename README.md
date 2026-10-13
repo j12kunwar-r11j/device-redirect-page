@@ -30,12 +30,10 @@ A simple and responsive webpage built using HTML, CSS, and JavaScript that detec
 
 ```text
 device-redirect-page/
-├── index.html
 ├── button.html
 └── README.md
 ```
 
-- `index.html` – Main webpage used for deployment.
 - `button.html` – Original webpage containing the device redirection logic.
 - `README.md` – Project documentation.
 
@@ -43,7 +41,7 @@ device-redirect-page/
 
 1. Clone or download this repository.
 2. Open the project folder in Visual Studio Code.
-3. Open `index.html` in your browser.
+3. Open `button.html` in your browser.
 4. Click the **Open My Page** button to test the redirection.
 
 No additional libraries or packages are required.
