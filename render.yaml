@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: device-redirect-page
+    runtime: static
+    branch: main
+    staticPublishPath: .
