@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Device Based Redirect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #00000015;
+        }
+
+        h1 {
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 22px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Device Detection</h1>
+
+        <p>
+            Click the button to detect your device
+            and open the selected website.
+        </p>
+
+        <button type="button" onclick="openDevicePage()">
+            Open My Page
+        </button>
+
+        <div id="result" aria-live="polite">
+            Waiting for button click...
+        </div>
+
+    </div>
+    
+    <script>
+        function openDevicePage() {
+
+            const ua = navigator.userAgent;
+
+            let device = "Other device";
+            let website = "https://www.google.com";
+
+            // Check iPhone first
+            if (/iPhone/i.test(ua)) {
+
+                device = "iPhone";
+                website = "https://www.google.com";
+
+            } 
+            // Check Android
+            else if (/Android/i.test(ua)) {
+
+                device = "Android";
+                website = "https://www.yahoo.com";
+
+            } 
+            // Check iPad
+            else if (/iPad/i.test(ua)) {
+
+                device = "iPad";
+                website = "https://www.google.com";
+
+            } 
+            // Check Mac
+            else if (/Macintosh|MacIntel|MacPPC|Mac68K/i.test(ua)) {
+
+                device = "Mac";
+                website = "https://www.opera.com";
+
+            } 
+            // Check Windows
+            else if (/Windows/i.test(ua)) {
+
+                device = "Windows";
+                website = "https://www.mozilla.org/firefox/";
+
+            }
+
+            // Display detected device
+            document.getElementById("result").textContent =
+                "Detected device: " + device +
+                " | Opening: " + website;
+
+            // Open selected website in the same tab
+            window.location.href = website;
+        }
+    </script>
+
+</body>
+</html>
